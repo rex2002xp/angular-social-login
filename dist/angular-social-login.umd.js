@@ -219,15 +219,17 @@ var FacebookLoginProvider = /** @class */ (function (_super) {
                     autoLogAppEvents: true,
                     cookie: true,
                     xfbml: true,
-                    version: 'v2.9'
+                    version: 'v2.10'
                 });
                 FB.AppEvents.logPageView();
                 FB.getLoginStatus(function (response) {
                     if (response.status === 'connected') {
-                        FB.api('/me?fields=name,email,picture', function (response) {
+                        FB.api('/me?fields=firtsname,lastname,name,email,picture', function (response) {
                             var /** @type {?} */ user = new SocialUser();
                             user.id = response.id;
-                            user.name = response.name;
+                            user.fullname = response.name;
+                            user.firstname = response.firstname;
+                            user.lastname = response.lastname;
                             user.email = response.email;
                             user.photoUrl = "https://graph.facebook.com/" + response.id + "/picture?type=normal";
                             resolve(user);
@@ -244,10 +246,12 @@ var FacebookLoginProvider = /** @class */ (function (_super) {
         return new Promise(function (resolve, reject) {
             FB.login(function (response) {
                 if (response.authResponse) {
-                    FB.api('/me?fields=name,email,picture', function (response) {
+                    FB.api('/me?fields=firtsname,lastname,name,email,picture', function (response) {
                         var /** @type {?} */ user = new SocialUser();
                         user.id = response.id;
-                        user.name = response.name;
+                        user.fullname = response.name;
+                        user.firstname = response.firstname;
+                        user.lastname = response.lastname;
                         user.email = response.email;
                         user.photoUrl = "https://graph.facebook.com/" + response.id + "/picture?type=normal";
                         resolve(user);

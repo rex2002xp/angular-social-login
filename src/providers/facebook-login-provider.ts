@@ -19,17 +19,19 @@ export class FacebookLoginProvider extends BaseLoginProvider {
             autoLogAppEvents: true,
             cookie: true,
             xfbml: true,
-            version: 'v2.9'
+            version: 'v2.10'
           });
           FB.AppEvents.logPageView();
 
           FB.getLoginStatus(function (response: any) {
             if (response.status === 'connected') {
-              FB.api('/me?fields=name,email,picture', (response: any) => {
+              FB.api('/me?fields=firtsname,lastname,name,email,picture', (response: any) => {
                 let user: SocialUser = new SocialUser();
 
                 user.id = response.id;
-                user.name = response.name;
+                user.fullname = response.name;
+                user.firstname = response.firstname;
+                user.lastname = response.lastname;
                 user.email = response.email;
                 user.photoUrl = "https://graph.facebook.com/" + response.id + "/picture?type=normal";
 
@@ -45,11 +47,13 @@ export class FacebookLoginProvider extends BaseLoginProvider {
     return new Promise((resolve, reject) => {
       FB.login((response: any) => {
         if (response.authResponse) {
-          FB.api('/me?fields=name,email,picture', (response: any) => {
+          FB.api('/me?fields=firtsname,lastname,name,email,picture', (response: any) => {
             let user: SocialUser = new SocialUser();
 
             user.id = response.id;
-            user.name = response.name;
+            user.fullname = response.name;
+            user.firstname = response.firstname;
+            user.lastname = response.lastname;
             user.email = response.email;
             user.photoUrl = "https://graph.facebook.com/" + response.id + "/picture?type=normal";
 

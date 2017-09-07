@@ -2,6 +2,8 @@ export class SocialUser {
     provider: string;
     id: string;
     email: string;
-    name: string;
+    fullname: string;
+    firstname: string;
+    lastname: string;
     photoUrl: string;
 }
