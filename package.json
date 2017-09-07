@@ -1,0 +1,28 @@
+{
+  "name": "angular-social-login",
+  "version": "1.0.0",
+  "description": "Modulo de autenticacion social con angular.io. Soporte para Facebook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rex2002xp/angular-social-login.git"
+  },
+  "keywords": [
+    "facebook",
+    "angular.io"
+  ],
+  "author": "Victor Hugo Cornejo Calderon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rex2002xp/angular-social-login/issues"
+  },
+  "homepage": "https://github.com/rex2002xp/angular-social-login#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.2",
+    "typescript": "^2.5.2"
+  }
+}
