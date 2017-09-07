@@ -1,4 +1,4 @@
-export class SocialUser {
+export declare class SocialUser {
     provider: string;
     id: string;
     email: string;
